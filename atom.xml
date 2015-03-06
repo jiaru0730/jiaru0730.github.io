@@ -4,13 +4,22 @@
   <title><![CDATA[Jiaru Primer]]></title>
   <link href="http://jiaru0730.github.io/atom.xml" rel="self"/>
   <link href="http://jiaru0730.github.io/"/>
-  <updated>2015-01-23T15:12:22+08:00</updated>
+  <updated>2015-03-06T11:15:41+08:00</updated>
   <id>http://jiaru0730.github.io/</id>
   <author>
     <name><![CDATA[Jiaru]]></name>
-    
+    <email><![CDATA[lony1107@gmail.com]]></email>
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Hello World!]]></title>
+    <link href="http://jiaru0730.github.io/blog/2015/03/06/hello-world/"/>
+    <updated>2015-03-06T11:05:16+08:00</updated>
+    <id>http://jiaru0730.github.io/blog/2015/03/06/hello-world</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
 </feed>
