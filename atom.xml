@@ -4,7 +4,7 @@
   <title><![CDATA[Jiaru Primer]]></title>
   <link href="http://jiaru0730.github.io/atom.xml" rel="self"/>
   <link href="http://jiaru0730.github.io/"/>
-  <updated>2015-03-08T19:51:02+08:00</updated>
+  <updated>2015-03-08T19:52:41+08:00</updated>
   <id>http://jiaru0730.github.io/</id>
   <author>
     <name><![CDATA[Jiaru]]></name>
@@ -22,7 +22,7 @@
 
 <p>Hello OctoPress!</p>
 
-<p><img src="http://jiaru0730.github.io/image/ynote_trailer.png" width="300" height="400" title="textA textB" ></p>
+<p><img class="right" src="http://jiaru0730.github.io/images/ynote_trailer.png" width="300" height="400" title="textA textB" ></p>
 ]]></content>
   </entry>
   
