@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Jiaru Primer</title>
+  <title>NSObject 中的 +load 与 +initialize - Jiaru Primer</title>
   <meta name="author" content="Jiaru">
 
   
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://jiaru0730.github.io/">
+  <link rel="canonical" href="http://jiaru0730.github.io/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <link href="/atom.xml" rel="alternate" title="Jiaru Primer" type="application/atom+xml">
@@ -63,15 +63,12 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/">NSObject 中的 +load 与 +initialize</a></h1>
+      <h1 class="entry-title">NSObject 中的 +load 与 +initialize</h1>
     
     
       <p class="meta">
@@ -87,7 +84,7 @@
   </header>
 
 
-  <div class="entry-content"><p>在 NSObject 类的文档中，有两个初始化相关的方法，+load 和 +initialize，开发文档中说得很清楚，这两个方法会被 Objective-C Runtime 自动调用，然后其他的解释都不是很好懂，我看了好几遍也没有一个知根知底的感觉，所以今天来整理一下。</p>
+<div class="entry-content"><p>在 NSObject 类的文档中，有两个初始化相关的方法，+load 和 +initialize，开发文档中说得很清楚，这两个方法会被 Objective-C Runtime 自动调用，然后其他的解释都不是很好懂，我看了好几遍也没有一个知根知底的感觉，所以今天来整理一下。</p>
 
 <h1>为啥把它俩放一起说？</h1>
 
@@ -154,57 +151,46 @@
 
 <p>我们知道 +initialize 是将将好在要收到第一个消息调用时由 runtime 自动调用的，这会比 +load 迟很多，也会在一个更加友好的环境中，因此在这里的限制会少很多。</p>
 </div>
-  
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jiaru</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-03-08T20:22:53+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>8</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>8:22 pm</span></time>
+      
+
+
+    </p>
     
-      <h1 class="entry-title"><a href="/blog/2015/03/06/hello-world/">Hello World!</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-03-06T11:05:16+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>6</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:05 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h1>This is my first blog with OctoPress</h1>
-
-<p>Hello OctoPress!</p>
-
-<p>换到Octopress来写博客了，因为之前和Flynn聊天的时候聊到自己用VPS搭WorldPress的方式。Flynn建议我能不自己做的事情就不要去做了，自己维护WorldPress的运维要花掉很多时间，也比较费事，于是接下来的时间我慢慢着手于找一个新的地方写博客。看到很多技术小伙伴用Octopress搭在GitHub上的博客看起来很不错，于是乎也给自己整了一个。</p>
-
-<p>说来也是很惭愧的，之前的博客总共就写了两三篇文章（和我之前每一次下决心开始写博客的结果一样，慢慢就搁置了），并且基本是初学 iOS 时整理的一些比较基础的内容，因此也不再复制过来了。重新开始吧，不打算建分类了，全部写在一起，我会积极地分享，这其中的内容难免有错误或者偏颇的地方，欢迎指出问题讨论观点。</p>
-
-<p>我的邮箱：<a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x4c;&#x6f;&#110;&#121;&#49;&#49;&#x30;&#x37;&#x40;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x4c;&#x6f;&#x6e;&#121;&#49;&#49;&#48;&#55;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
-
-<p><img src="/images/ynote_trailer.png" width="300" height="400" title="textA textB" ></p>
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jiaru0730.github.io/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/" data-via="" data-counturl="http://jiaru0730.github.io/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/" >Tweet</a>
+  
+  
+  
 </div>
-  
-  
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/06/hello-world/" title="Previous Post: Hello World!">&laquo; Hello World!</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
 </div>
+
 <aside class="sidebar">
   
     <section>
@@ -228,6 +214,7 @@
 
   
 </aside>
+
 
     </div>
   </div>
