@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>App Extension Basics - Jiaru Primer</title>
+  <meta name="author" content="Jiaru">
+
+  
+  <meta name="description" content="iOS 8 和 OS X v10.10 开始引入了扩展，这是个很赞的新功能，有了扩展，用户就可以在使用其他应用或者系统功能的上下文中使用我们程序的功能。苹果的文档中介绍扩展使用了这样的标题“App Extensions Increase Your Impact”，这实在是再适合不过了，因为有了扩展 &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://jiaru0730.github.io/blog/2015/03/25/app-extension-basics/">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="Jiaru Primer" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">Jiaru Primer</a></h1>
+  
+    <h2>Just another developer.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="sitesearch" value="jiaru0730.github.io">
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">App Extension Basics</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-25T10:37:12+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>iOS 8 和 OS X v10.10 开始引入了扩展，这是个很赞的新功能，有了扩展，用户就可以在使用其他应用或者系统功能的上下文中使用我们程序的功能。苹果的文档中介绍扩展使用了这样的标题“App Extensions Increase Your Impact”，这实在是再适合不过了，因为有了扩展，我们不再局限于自己的应用，我们可以出现在任何扩展点允许的位置、合理的上下文中，为用户提供更丰富的有意义的功能。</p>
+
+<h2>主要区别</h2>
+
+<p>生命周期
+可用的API</p>
+
+<h2>扩展分类</h2>
+
+<p>7个分类</p>
+
+<h2>扩展的工作方式</h2>
+
+<h3>扩展的生命周期</h3>
+
+<p>应用扩展的生命周期与
+应用扩展的生命周期不同于应用本身，如下图所示：</p>
+
+<p><img src="images/app_extension_life_circle.png" width="1368" height="612" title="扩展的生命周期 扩展的生命周期" ></p>
+
+<p><em>图片转自苹果开发文档</em></p>
+
+<p>通常情况下，扩展生命最明显的特征就是短，并且其生存环境通常是系统或者其他应用的上下文中。以今日视图的扩展 (Today View Extension) 来说，其启动和结束是由今日视图的操作来决定的，当新建一个今日视图的扩展项目后，我们可以看到 Xcode 自动为我们新建了一个 ViewController，如下图所示：</p>
+
+<p><img src="images/today_view_extension_project_navigation.png"></p>
+
+<hr />
+
+<p>从用户的角度来看，扩展与应用有一个很重要的区别在于使用过程中的上下文——应用是独占式的，而扩展则是临时介入式的——这将对用户使用两者的习惯以及对功能的预期都有很大的影响，因此在决定是否做一个新的扩展，决定做什么样的扩展功能时，一定要认真地思考我们所提供的功能特性是否适合既定的上下文。</p>
+
+<p>此外，扩展的生命周期通常比较短所以尽可能避免在其生命周期中做过于复杂的事情，如果一定需要的话，考虑使用后台任务来完成。</p>
+
+<hr />
+
+<p>An app extension communicates directly only with the host app</p>
+
+<p>Containing app 和 扩展之间无法进行直接的通信，通常来说，扩展运行的时候 Containing app 甚至可能没有在运行。</p>
+
+<hr />
+
+<p>应用打包时的 Provisioning Profile 与 Cerificates 需要注意的地方：</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Jiaru</span></span>
+
+      
+
+
+
+
+<time class='entry-date' datetime='2015-03-25T10:37:12+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://jiaru0730.github.io/blog/2015/03/25/app-extension-basics/" data-via="" data-counturl="http://jiaru0730.github.io/blog/2015/03/25/app-extension-basics/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/" title="Previous Post: NSObject 中的 +load 与 +initialize">&laquo; NSObject 中的 +load 与 +initialize</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/25/app-extension-basics/">App Extension Basics</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/">NSObject 中的 +load 与 +initialize</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2015/03/06/hello-world/">Hello World!</a>
+      </li>
+    
+  </ul>
+</section>
+
+
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2015 - Jiaru -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

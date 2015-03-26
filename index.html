@@ -9,7 +9,7 @@
   <meta name="author" content="Jiaru">
 
   
-  <meta name="description" content="在 NSObject 类的文档中，有两个初始化相关的方法，+load 和 +initialize，开发文档中说得很清楚，这两个方法会被 Objective-C Runtime 自动调用，然后其他的解释都不是很好懂，我看了好几遍也没有一个知根知底的感觉，所以今天来整理一下。 为啥把它俩放一起说？ &hellip;">
+  <meta name="description" content="iOS 8 和 OS X v10.10 开始引入了扩展，这是个很赞的新功能，有了扩展，用户就可以在使用其他应用或者系统功能的上下文中使用我们程序的功能。苹果的文档中介绍扩展使用了这样的标题“App Extensions Increase Your Impact”，这实在是再适合不过了，因为有了扩展 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -65,6 +65,75 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2015/03/25/app-extension-basics/">App Extension Basics</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+<time class='entry-date' datetime='2015-03-25T10:37:12+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>25</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:37 am</span></time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>iOS 8 和 OS X v10.10 开始引入了扩展，这是个很赞的新功能，有了扩展，用户就可以在使用其他应用或者系统功能的上下文中使用我们程序的功能。苹果的文档中介绍扩展使用了这样的标题“App Extensions Increase Your Impact”，这实在是再适合不过了，因为有了扩展，我们不再局限于自己的应用，我们可以出现在任何扩展点允许的位置、合理的上下文中，为用户提供更丰富的有意义的功能。</p>
+
+<h2>主要区别</h2>
+
+<p>生命周期
+可用的API</p>
+
+<h2>扩展分类</h2>
+
+<p>7个分类</p>
+
+<h2>扩展的工作方式</h2>
+
+<h3>扩展的生命周期</h3>
+
+<p>应用扩展的生命周期与
+应用扩展的生命周期不同于应用本身，如下图所示：</p>
+
+<p><img src="images/app_extension_life_circle.png" width="1368" height="612" title="扩展的生命周期 扩展的生命周期" ></p>
+
+<p><em>图片转自苹果开发文档</em></p>
+
+<p>通常情况下，扩展生命最明显的特征就是短，并且其生存环境通常是系统或者其他应用的上下文中。以今日视图的扩展 (Today View Extension) 来说，其启动和结束是由今日视图的操作来决定的，当新建一个今日视图的扩展项目后，我们可以看到 Xcode 自动为我们新建了一个 ViewController，如下图所示：</p>
+
+<p><img src="images/today_view_extension_project_navigation.png"></p>
+
+<hr />
+
+<p>从用户的角度来看，扩展与应用有一个很重要的区别在于使用过程中的上下文——应用是独占式的，而扩展则是临时介入式的——这将对用户使用两者的习惯以及对功能的预期都有很大的影响，因此在决定是否做一个新的扩展，决定做什么样的扩展功能时，一定要认真地思考我们所提供的功能特性是否适合既定的上下文。</p>
+
+<p>此外，扩展的生命周期通常比较短所以尽可能避免在其生命周期中做过于复杂的事情，如果一定需要的话，考虑使用后台任务来完成。</p>
+
+<hr />
+
+<p>An app extension communicates directly only with the host app</p>
+
+<p>Containing app 和 扩展之间无法进行直接的通信，通常来说，扩展运行的时候 Containing app 甚至可能没有在运行。</p>
+
+<hr />
+
+<p>应用打包时的 Provisioning Profile 与 Cerificates 需要注意的地方：</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -189,7 +258,7 @@
 
 <p>说来也是很惭愧的，之前的博客总共就写了两三篇文章（和我之前每一次下决心开始写博客的结果一样，慢慢就搁置了），并且基本是初学 iOS 时整理的一些比较基础的内容，因此也不再复制过来了。重新开始吧，不打算建分类了，全部写在一起，我会积极地分享，这其中的内容难免有错误或者偏颇的地方，欢迎指出问题讨论观点。</p>
 
-<p>我的邮箱：<a href="&#109;&#x61;&#105;&#108;&#x74;&#x6f;&#58;&#x4c;&#x6f;&#110;&#121;&#49;&#49;&#x30;&#x37;&#x40;&#x67;&#109;&#x61;&#105;&#x6c;&#x2e;&#99;&#x6f;&#x6d;">&#x4c;&#x6f;&#x6e;&#121;&#49;&#49;&#48;&#55;&#64;&#x67;&#x6d;&#x61;&#x69;&#108;&#46;&#x63;&#x6f;&#109;</a></p>
+<p>我的邮箱：<a href="&#x6d;&#97;&#105;&#108;&#x74;&#111;&#x3a;&#76;&#111;&#110;&#121;&#49;&#49;&#48;&#x37;&#x40;&#103;&#109;&#x61;&#105;&#108;&#46;&#x63;&#x6f;&#109;">&#x4c;&#x6f;&#110;&#x79;&#49;&#49;&#48;&#55;&#64;&#103;&#109;&#97;&#105;&#108;&#46;&#99;&#111;&#x6d;</a></p>
 
 <p><img src="/images/ynote_trailer.png" width="300" height="400" title="textA textB" ></p>
 </div>
@@ -210,6 +279,10 @@
     <section>
   <h1>Recent Posts</h1>
   <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2015/03/25/app-extension-basics/">App Extension Basics</a>
+      </li>
     
       <li class="post">
         <a href="/blog/2015/03/08/nsobject-zhong-de-plus-load-yu-plus-initialize/">NSObject 中的 +load 与 +initialize</a>
